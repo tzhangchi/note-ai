@@ -25,7 +25,6 @@
     "@blocksuite/editor": "0.6.0",
     "@blocksuite/lit": "0.6.0",
     "@blocksuite/store": "0.6.0",
-    "@blocksuite/phasor": "0.6.0",
     "ahooks": "^3.7.7",
     "@upstash/ratelimit": "^0.4.3",
     "@vercel/kv": "^0.2.2",

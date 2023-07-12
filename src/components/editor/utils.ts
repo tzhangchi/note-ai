@@ -11,7 +11,7 @@ import {
   type WorkspaceOptions,
 } from "@blocksuite/store";
 import type { BlobStorage, Page } from "@blocksuite/store";
-import type { IShape } from "@blocksuite/phasor";
+// import type { IShape } from "@blocksuite/phasor";
 import * as Y from "yjs";
 import { EditorContainer } from "@blocksuite/editor";
 /**
@@ -44,24 +44,24 @@ export function createWorkspaceOptions(): WorkspaceOptions {
   };
 }
 
-export function addShapeElement(
-  page: Page,
-  surfaceBlockId: string,
-  shape: IShape
-) {
-  const shapeYElement = new Y.Map();
-  for (const [key, value] of Object.entries(shape)) {
-    shapeYElement.set(key, value);
-  }
-  const yBlock = page.getYBlockById(surfaceBlockId);
-  assertExists(yBlock);
-  let yContainer = yBlock.get("elements") as InstanceType<typeof page.YMap>;
-  if (!yContainer) {
-    yContainer = new page.YMap();
-    yBlock.set("elements", yContainer);
-  }
-  yContainer.set(shape.id as string, shapeYElement);
-}
+// export function addShapeElement(
+//   page: Page,
+//   surfaceBlockId: string,
+//   shape: IShape
+// ) {
+//   const shapeYElement = new Y.Map();
+//   for (const [key, value] of Object.entries(shape)) {
+//     shapeYElement.set(key, value);
+//   }
+//   const yBlock = page.getYBlockById(surfaceBlockId);
+//   assertExists(yBlock);
+//   let yContainer = yBlock.get("elements") as InstanceType<typeof page.YMap>;
+//   if (!yContainer) {
+//     yContainer = new page.YMap();
+//     yBlock.set("elements", yContainer);
+//   }
+//   yContainer.set(shape.id as string, shapeYElement);
+// }
 
 export const createEditor = (page: Page, element: HTMLElement) => {
   const editor = new EditorContainer();
