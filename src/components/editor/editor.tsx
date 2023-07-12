@@ -209,6 +209,12 @@ const Editor: React.FC<IEditorProps> = (props) => {
       }
     }, 10);
   };
+  const downloadMarkdown = () => {
+    // contentParserRef.current;
+    // debugger;
+    // contentParserRef.current.exportMarkdown();
+    // contentParserRef.current.exportHtml();
+  };
 
   return (
     <div className="flex min-h-screen flex-col items-center sm:px-5 sm:pt-[calc(15vh)]">
@@ -272,6 +278,15 @@ const Editor: React.FC<IEditorProps> = (props) => {
               Dark Mode
             </a>
           </li>
+
+          {/* <li>
+            <a
+              onClick={downloadMarkdown}
+              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >
+              Export Markdown
+            </a>
+          </li> */}
           <li>
             <a
               onClick={exportPDF}
@@ -281,6 +296,7 @@ const Editor: React.FC<IEditorProps> = (props) => {
             </a>
           </li>
         </ul>
+
         <div className="py-2">
           <a
             href="#"
