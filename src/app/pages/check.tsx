@@ -24,14 +24,19 @@ export default function PostEditorPage() {
   );
 
   return (
-    <div>
+    <div className="mx-auto w-72 p-12 border-purple-500 border-solid border ">
       <h1>Post Editor</h1>
       <textarea
         rows={20}
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button onClick={() => checkAndPublish(content)}>Publish</button>
+      <button
+        className="bg-purple-500 p-4 text-white   rounded"
+        onClick={() => checkAndPublish(content)}
+      >
+        Publish
+      </button>
     </div>
   );
 }
