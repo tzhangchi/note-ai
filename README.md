@@ -1,5 +1,6 @@
 <a href="https://note-ai.vercel.app/">
- <img width="1118" alt="image" src="https://github.com/tzhangchi/note-ai/assets/5910926/aa7092cf-0ed9-45ec-84ca-8c23fbeeb5c0">
+
+![image](https://github.com/tzhangchi/note-ai/assets/5910926/0034da2b-3e6a-4898-9644-e3d30613e7cb)
 
   <h1 align="center">Note AI</h1>
 </a>
