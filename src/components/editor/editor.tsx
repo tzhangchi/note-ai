@@ -157,7 +157,7 @@ const Editor: React.FC<IEditorProps> = (props) => {
     }
   };
   const { complete, isLoading } = useCompletion({
-    id: "novel",
+    id: "note-ai",
     api: "/api/generate",
     onResponse: (response) => {
       if (response.status === 429) {
