@@ -168,6 +168,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
       // editor.chain().focus().deleteRange(range).run();
     },
     onFinish: (_prompt, completion) => {
+      console.log("_prompt", _prompt);
+      console.log("completion", completion);
+
       // highlight the generated text
       // editor.commands.setTextSelection({
       //   from: range.from,
