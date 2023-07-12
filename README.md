@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a href="https://note-ai.vercel.app/">
+ <img width="1118" alt="image" src="https://github.com/tzhangchi/note-ai/assets/5910926/aa7092cf-0ed9-45ec-84ca-8c23fbeeb5c0">
 
-## Getting Started
+  <h1 align="center">Note AI</h1>
+</a>
 
-First, run the development server:
+<p align="center">
+  An open-source Notion-style  WYSIWYG editor with AI-powered autocompletions. 
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<p align="center">
+  <a href="https://github.com/tzhangchi/note-ai/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/tzhangchi/note-ai?label=license&logo=github&color=806&logoColor=fff" alt="License" />
+  </a>
+  <a href="https://github.com/tzhangchi/note-ai"><img src="https://img.shields.io/github/stars/tzhangchi/note-ai?style=social" alt="note-ai.vercel.app's GitHub repo"></a>
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+  <a href="#introduction"><strong>Introduction</strong></a> ·
+  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
+  <a href="#setting-up-locally"><strong>Setting Up Locally</strong></a> ·
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
+  <a href="#contributing"><strong>Contributing</strong></a> ·
+  <a href="#license"><strong>License</strong></a>
+</p>
+<br/>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Introduction
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[Note AI](https://note-ai.vercel.app/) is a Notion-style WYSIWYG editor with AI-powered autocompletions.
 
-## Learn More
+Here's a quick 20-second demo:
 
-To learn more about Next.js, take a look at the following resources:
+TODO Link
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deploy Your Own
 
-## Deploy on Vercel
+You can deploy your own version of Note AI to Vercel with one click:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://note-ai.vercel.app/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Setting Up Locally
+
+To set up Note AI locally, you'll need to clone the repository and set up the following environment variables:
+
+- `OPENAI_API_KEY` – your OpenAI API key (you can get one [here](https://platform.openai.com/account/api-keys))
+
+If you've deployed this to Vercel, you can also use [`vc env pull`](https://vercel.com/docs/cli/env#exporting-development-environment-variables) to pull the environment variables from your Vercel project.
+
+## Tech Stack
+
+Note AI is built on the following stack:
+
+- [Next.js](https://nextjs.org/) – framework
+- [blocksuite](https://blocksuite.affine.pro/) – text editor
+- [OpenAI](https://openai.com/) - AI completions
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) – AI library
+- [Vercel](https://vercel.com) – deployments
+- [TailwindCSS](https://tailwindcss.com/) – styles
+
+## Contributing
+
+Here's how you can contribute:
+
+- [Open an issue](https://github.com/tzhangchi/note-ai/issues) if you believe you've encountered a bug.
+- Make a [pull request](https://github.com/tzhangchi/note-ai/pull) to add new features/make quality-of-life improvements/fix bugs.
+
+## Author
+
+- Chi Zhang ([@Terrychinaz](https://twitter.com/Terrychinaz))
+
+## License
+
+Licensed under the [MIT license](https://github.com/tzhangchi/note-ai/blob/main/LICENSE.md).
