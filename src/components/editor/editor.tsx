@@ -176,7 +176,10 @@ const Editor: React.FC<IEditorProps> = (props) => {
       //   from: range.from,
       //   to: range.from + completion.length,
       // });
-
+      if (!completion) {
+        console.error("completion is null");
+        return;
+      }
       setDisplayMarkdown(completion);
     },
     onError: () => {
