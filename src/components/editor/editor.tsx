@@ -198,6 +198,17 @@ const Editor: React.FC<IEditorProps> = (props) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+  const contiuneWrite = () => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayMarkdown(presetMarkdown.substring(0, i));
+      i++;
+      if (i > presetMarkdown.length) {
+        setCanEditor(true);
+        clearInterval(interval);
+      }
+    }, 10);
+  };
 
   return (
     <div className="flex min-h-screen flex-col items-center sm:px-5 sm:pt-[calc(15vh)]">
@@ -279,7 +290,14 @@ const Editor: React.FC<IEditorProps> = (props) => {
           </a>
         </div>
       </div>
-
+      <div className="p-2">
+        <button
+          className="bg-purple-500 p-4 text-white  rounded"
+          onClick={() => contiuneWrite()}
+        >
+          Continue Write
+        </button>
+      </div>
       <div className="relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg">
         <div ref={ref} />
       </div>
