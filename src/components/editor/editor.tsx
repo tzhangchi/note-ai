@@ -91,7 +91,7 @@ const Editor: React.FC<IEditorProps> = (props) => {
     }
     if (!pageBlockIdRef.current) {
       const _pageBlockId = pageRef.current.addBlock("affine:page", {
-        title: new Text("Wel"),
+        title: new Text("Introduction Note AI"),
       });
       pageBlockIdRef.current = _pageBlockId;
     }
