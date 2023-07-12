@@ -9,9 +9,9 @@ const Editor = dynamic(() => import("@/components/editor/editor"), {
 export default function Home() {
   return (
     <div>
+      <Editor />
       <PostEditorPage />
       <Chat />
-      <Editor />
     </div>
   );
 }

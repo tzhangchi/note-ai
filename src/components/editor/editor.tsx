@@ -50,7 +50,7 @@ const Editor: React.FC<IEditorProps> = (props) => {
       setCanEditor(true);
 
       console.log("init ", presetMarkdown);
-      // setDisplayMarkdown(presetMarkdown);
+      setDisplayMarkdown(presetMarkdown);
       complete("this is affine, write a blog open-source affine");
     }
   }, []);
