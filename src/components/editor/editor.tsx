@@ -183,7 +183,18 @@ const Editor: React.FC<IEditorProps> = (props) => {
       setDisplayMarkdown("Note AI generate content..., something went wrong.");
     },
   });
-  //@ts-ignore
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest("#dropdownMenuIconButton")) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center sm:px-5 sm:pt-[calc(15vh)]">
