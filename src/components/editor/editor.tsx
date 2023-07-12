@@ -10,6 +10,8 @@ import { ContentParser } from "@blocksuite/blocks/content-parser";
 import "@blocksuite/editor/themes/affine.css";
 import { presetMarkdown } from "./data";
 import { PageBlockModel, getDefaultPage } from "@blocksuite/blocks";
+import { useCompletion } from "ai/react";
+
 export interface IEditorProps {
   className?: string;
 }
@@ -47,7 +49,10 @@ const Editor: React.FC<IEditorProps> = (props) => {
       return () => clearInterval(interval);
     } else {
       setCanEditor(true);
-      setDisplayMarkdown(presetMarkdown);
+
+      console.log("init ", presetMarkdown);
+      // setDisplayMarkdown(presetMarkdown);
+      complete("this is affine, write a blog open-source affine");
     }
   }, []);
 
@@ -152,6 +157,31 @@ const Editor: React.FC<IEditorProps> = (props) => {
       }
     }
   };
+  const { complete, isLoading } = useCompletion({
+    id: "novel",
+    api: "/api/generate",
+    onResponse: (response) => {
+      if (response.status === 429) {
+        alert("You have reached your request limit for the day.");
+        console.log("Rate Limit Reached");
+        return;
+      }
+      // editor.chain().focus().deleteRange(range).run();
+    },
+    onFinish: (_prompt, completion) => {
+      // highlight the generated text
+      // editor.commands.setTextSelection({
+      //   from: range.from,
+      //   to: range.from + completion.length,
+      // });
+
+      setDisplayMarkdown(completion);
+    },
+    onError: () => {
+      setDisplayMarkdown("Note AI generate content..., something went wrong.");
+    },
+  });
+  //@ts-ignore
 
   return (
     <div className="flex min-h-screen flex-col items-center sm:px-5 sm:pt-[calc(15vh)]">
