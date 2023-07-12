@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/tzhangchi/note-ai/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/tzhangchi/note-ai?label=license&logo=github&color=806&logoColor=fff" alt="License" />
+    <img src="https://img.shields.io/github/license/tzhangchi/note-ai?label=license&logo=github&color=807&logoColor=fff" alt="License" />
   </a>
   <a href="https://github.com/tzhangchi/note-ai"><img src="https://img.shields.io/github/stars/tzhangchi/note-ai?style=social" alt="note-ai.vercel.app's GitHub repo"></a>
 </p>
