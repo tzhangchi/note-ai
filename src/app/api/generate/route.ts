@@ -7,6 +7,7 @@ const config = new Configuration({
   apiKey: process.env["OPENAI_API_KEY"],
 });
 console.log("OPENAI_API_KEY", process.env["OPENAI_API_KEY"]);
+console.log("KV_REST_API_TOKEN", process.env["KV_REST_API_TOKEN"]);
 const openai = new OpenAIApi(config);
 
 export const runtime = "edge";

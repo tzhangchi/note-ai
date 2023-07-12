@@ -1,6 +1,5 @@
 "use client"; // This is a client component 👈🏽
 import React, { useEffect, useRef, useState } from "react";
-
 import { createEditor, createWorkspaceOptions } from "./utils";
 import { __unstableSchemas, AffineSchemas } from "@blocksuite/blocks/models";
 import { useMount, useUpdate, useUpdateEffect } from "ahooks";
