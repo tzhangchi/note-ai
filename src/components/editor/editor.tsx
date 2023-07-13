@@ -331,8 +331,10 @@ const Editor: React.FC<IEditorProps> = (props) => {
         >
           Continue Write
         </button>
+        <p>Current state: {isLoading ? "Generating..." : "Idle"}</p>
+
         {isLoading && (
-          <div className="flex items-center justify-center h-screen fixed top-5 left-1/2">
+          <div className="flex items-center justify-center h-screen fixed top-5 left-20">
             <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
           </div>
         )}
