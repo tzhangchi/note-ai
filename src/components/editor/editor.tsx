@@ -51,9 +51,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
 
       console.log("init ", presetMarkdown);
       setDisplayMarkdown(presetMarkdown);
-      // complete(
-      //   "There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use."
-      // );
+      complete(
+        "There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use."
+      );
     }
   }, []);
 
@@ -320,12 +320,11 @@ const Editor: React.FC<IEditorProps> = (props) => {
       <div className="p-2">
         <textarea
           className=" border-gray-500 border-solid border h-40 w-full p-2"
-          value="There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use."
           ref={promptRef}
         />
         <button
           className="bg-purple-500 p-1 ml-1 text-white  rounded"
-          onClick={() => contiuneWrite()}
+          onClick={contiuneWrite}
         >
           Continue Write
         </button>
