@@ -51,9 +51,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
 
       console.log("init ", presetMarkdown);
       setDisplayMarkdown(presetMarkdown);
-      complete(
-        "There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use."
-      );
+      // complete(
+      //   "There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use."
+      // );
     }
   }, []);
 
@@ -161,6 +161,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
   };
   const streamEffectInput = (str: string) => {
     let i = 0;
+    if (promptRef && promptRef.current) {
+      str = promptRef.current.value + str;
+    }
     const interval = setInterval(() => {
       setDisplayMarkdown(str.substring(0, i));
       i++;
@@ -195,9 +198,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
         return;
       }
       streamEffectInput(completion);
-      if (promptRef && promptRef.current) {
-        promptRef.current.value = completion;
-      }
+      // if (promptRef && promptRef.current) {
+      //   promptRef.current.value = completion;
+      // }
     },
     onError: () => {
       streamEffectInput("Note AI generate content..., something went wrong.");
@@ -217,7 +220,6 @@ const Editor: React.FC<IEditorProps> = (props) => {
   }, []);
   const contiuneWrite = () => {
     const prompt = promptRef.current?.value || "";
-    streamEffectInput(prompt);
     complete(prompt);
   };
   const downloadMarkdown = () => {
@@ -317,10 +319,11 @@ const Editor: React.FC<IEditorProps> = (props) => {
           </a>
         </div>
       </div>
-      <div className="p-2">
+      <div className="p-2 absolute left-2 top-32">
         <textarea
-          className=" border-gray-500 border-solid border h-40 w-full p-2"
+          className="shadow-2xl h-40 w-full p-2"
           ref={promptRef}
+          placeholder="input your prompt"
         />
         <button
           className="bg-purple-500 p-1 ml-1 text-white  rounded"
@@ -328,6 +331,11 @@ const Editor: React.FC<IEditorProps> = (props) => {
         >
           Continue Write
         </button>
+        {isLoading && (
+          <div className="flex items-center justify-center h-screen fixed top-5 left-1/2">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
+          </div>
+        )}
       </div>
       <div className="relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg">
         <div ref={ref} />
