@@ -51,7 +51,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
 
       console.log("init ", presetMarkdown);
       setDisplayMarkdown(presetMarkdown);
-      complete("this is affine, write a blog open-source affine");
+      // complete(
+      //   "There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use."
+      // );
     }
   }, []);
 
@@ -59,7 +61,7 @@ const Editor: React.FC<IEditorProps> = (props) => {
 
   const workspaceRef = useRef<Workspace>(null!);
   const pageRef = useRef<Page>(null!);
-  const promptRef = useRef<HTMLInputElement>(null);
+  const promptRef = useRef<HTMLTextAreaElement>(null);
 
   const pageBlockIdRef = useRef<string>("");
   const contentParserRef = useRef<ContentParser>(null!);
@@ -313,9 +315,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
         </div>
       </div>
       <div className="p-2">
-        <input
-          className=" border-gray-500 border-solid border"
-          type="text"
+        <textarea
+          className=" border-gray-500 border-solid border h-40 w-full p-2"
+          value="There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use."
           ref={promptRef}
         />
         <button
