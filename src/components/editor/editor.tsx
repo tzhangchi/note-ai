@@ -195,6 +195,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
         return;
       }
       streamEffectInput(completion);
+      if (promptRef && promptRef.current) {
+        promptRef.current.value = completion;
+      }
     },
     onError: () => {
       streamEffectInput("Note AI generate content..., something went wrong.");
