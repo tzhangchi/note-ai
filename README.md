@@ -32,7 +32,11 @@
 
 Here's a quick 20-second demo:
 
-TODO Link
+
+
+https://github.com/tzhangchi/note-ai/assets/5910926/c5fa9b6d-4199-4a8c-9c90-98f7785a6281
+
+
 
 <br />
 
@@ -40,7 +44,7 @@ TODO Link
 
 You can deploy your own version of Note AI to Vercel with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://note-ai.vercel.app/)
+[![WIP Deploy with Vercel](https://vercel.com/button)](https://note-ai.vercel.app/)
 
 ## Setting Up Locally
 
