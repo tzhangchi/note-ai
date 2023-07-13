@@ -59,6 +59,7 @@ const Editor: React.FC<IEditorProps> = (props) => {
 
   const workspaceRef = useRef<Workspace>(null!);
   const pageRef = useRef<Page>(null!);
+  const promptRef = useRef<HTMLInputElement>(null);
 
   const pageBlockIdRef = useRef<string>("");
   const contentParserRef = useRef<ContentParser>(null!);
@@ -156,6 +157,17 @@ const Editor: React.FC<IEditorProps> = (props) => {
       }
     }
   };
+  const streamEffectInput = (str: string) => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayMarkdown(str.substring(0, i));
+      i++;
+      if (i > str.length) {
+        setCanEditor(true);
+        clearInterval(interval);
+      }
+    }, 10);
+  };
   const { complete, isLoading } = useCompletion({
     id: "note-ai",
     api: "/api/generate",
@@ -177,13 +189,13 @@ const Editor: React.FC<IEditorProps> = (props) => {
       //   to: range.from + completion.length,
       // });
       if (!completion) {
-        console.error("completion is null");
+        streamEffectInput("completion is null");
         return;
       }
-      setDisplayMarkdown(completion);
+      streamEffectInput(completion);
     },
     onError: () => {
-      setDisplayMarkdown("Note AI generate content..., something went wrong.");
+      streamEffectInput("Note AI generate content..., something went wrong.");
     },
   });
   useEffect(() => {
@@ -199,15 +211,9 @@ const Editor: React.FC<IEditorProps> = (props) => {
     };
   }, []);
   const contiuneWrite = () => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayMarkdown(presetMarkdown.substring(0, i));
-      i++;
-      if (i > presetMarkdown.length) {
-        setCanEditor(true);
-        clearInterval(interval);
-      }
-    }, 10);
+    const prompt = promptRef.current?.value || "";
+    streamEffectInput(prompt);
+    complete(prompt);
   };
   const downloadMarkdown = () => {
     // contentParserRef.current;
@@ -307,8 +313,13 @@ const Editor: React.FC<IEditorProps> = (props) => {
         </div>
       </div>
       <div className="p-2">
+        <input
+          className=" border-gray-500 border-solid border"
+          type="text"
+          ref={promptRef}
+        />
         <button
-          className="bg-purple-500 p-4 text-white  rounded"
+          className="bg-purple-500 p-1 ml-1 text-white  rounded"
           onClick={() => contiuneWrite()}
         >
           Continue Write
